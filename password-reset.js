@@ -47,7 +47,7 @@ var GetClient = async ({ auth0_domain, management_api_client_id, management_api_
 
 var ChangePassword = async (client, email, connection_id = connection) => {
     return client.tickets.changePassword({
-        result_url: 'https://wt-4b3487741e69000b5f78e715cc37928b-0.sandbox.auth0-extend.com/hello',  // Redirect after using the ticket.
+        result_url: '<<redirect URI>>',  // Redirect after using the ticket.
         email,  // Optional.
         connection_id
     });
@@ -61,7 +61,7 @@ var SendEmail = async (webtaskContext,toEmail, userLocale, ticketUrl) => {
     var user_metadata = userLocale.user_metadata;
     var locale = user_metadata.locale || 'EN';
     
-    var fromEmail = new helper.Email('sumana22@gmail.com');
+    var fromEmail = new helper.Email('<<fromemail address>>');
 
     var {subject, html} = GetLocaleData(locale, fromEmail, ticketUrl);
     var content = new helper.Content('text/html', html);
